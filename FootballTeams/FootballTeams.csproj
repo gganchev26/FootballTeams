@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MapConfig\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 
