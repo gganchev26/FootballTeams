@@ -31,9 +31,9 @@ namespace FootballTeams.Controllers
             return NotFound();
         }
 
-        [ProducesResponseType(StatusCode.Status200OK)]
-        [ProducesResponseType(StatusCode.Status404NotFound)]
-        [ProducesResponseType(StatusCode.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet("GetById")]
         public IActionResult GetById(string id)
         {
