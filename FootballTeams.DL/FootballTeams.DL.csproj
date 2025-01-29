@@ -16,9 +16,4 @@
     <ProjectReference Include="..\FootballTeams.Models\FootballTeams.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="StaticData\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
