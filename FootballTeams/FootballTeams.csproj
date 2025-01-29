@@ -19,8 +19,4 @@
     <ProjectReference Include="..\FootballTeams.BL\FootballTeams.BL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Validators\" />
-  </ItemGroup>
-
 </Project>
