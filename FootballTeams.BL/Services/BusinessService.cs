@@ -4,7 +4,7 @@ using FootballTeams.Models.Responses;
 
 namespace FootballTeams.BL.Services
 {
-    internal class BusinessService : IBusinessService
+    public class BusinessService : IBusinessService
     {
         private readonly ITeamsRepository _teamsRepository;
         private readonly IPlayerRepository _playerRepository;
