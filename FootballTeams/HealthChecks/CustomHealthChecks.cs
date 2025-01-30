@@ -4,7 +4,7 @@ namespace FootballTeams.HealthChecks
 {
     public class CustomHealthChecks : IHealthCheck
     {
-        public Task<HealthCheckResult> CheckHealthAsyns(
+        public Task<HealthCheckResult> CheckHealthAsync(
             HealthCheckContext context,
             CancellationToken cancellationToken = default)
         {
