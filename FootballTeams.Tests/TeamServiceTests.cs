@@ -5,7 +5,6 @@ using Moq;
 using FootballTeams.BL.Services;
 using FootballTeams.DL.Interfaces;
 using FootballTeams.Models.DTO;
-using FootballTeams.BL.Interfaces;
 
 namespace FootballTeams.Tests
 {
