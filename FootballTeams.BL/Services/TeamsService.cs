@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace FootballTeams.BL.Services
 {
-    internal class TeamsService : ITeamsService
+    public class TeamsService : ITeamsService
     {
         private readonly ITeamsRepository _teamsRepository;
         private readonly IPlayerRepository _playerRepository;
