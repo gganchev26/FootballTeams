@@ -6,8 +6,6 @@ using FootballTeams.BL.Interfaces;
 using FootballTeams.DL;
 using FootballTeams.Models.Configurations;
 using FootballTeams.Validators;
-using FootballTeams.DL.Interfaces;
-using FootballTeams.DL.Repositories.MongoDb;
 
 namespace FootballTeam
 {
