@@ -4,7 +4,7 @@ using FootballTeams.Models.DTO;
 
 namespace FootballTeams.DL.Repositories
 {
-    internal class TeamStaticDataRepository  : ITeamsRepository
+    public class TeamStaticDataRepository  : ITeamsRepository
     {
         public void Add(Teams team)
         {

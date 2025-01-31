@@ -6,6 +6,8 @@ using FootballTeams.BL.Interfaces;
 using FootballTeams.DL;
 using FootballTeams.Models.Configurations;
 using FootballTeams.Validators;
+using FootballTeams.DL.Interfaces;
+using FootballTeams.DL.Repositories.MongoDb;
 
 namespace FootballTeam
 {
@@ -19,6 +21,7 @@ namespace FootballTeam
             builder.Services.Configure<MongoDbConfiguration>(
                 builder.Configuration
                 .GetSection(nameof(MongoDbConfiguration)));
+
 
             //Add services to the container.
             builder.Services
@@ -36,6 +39,8 @@ namespace FootballTeam
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddHealthChecks();
+
+            builder.Services.AddSingleton<ITeamsRepository, TeamsMongoRepository>();
 
             var app = builder.Build();
 

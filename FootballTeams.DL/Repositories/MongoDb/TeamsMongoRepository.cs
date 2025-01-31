@@ -8,7 +8,7 @@ using FootballTeams.Models.DTO;
 
 namespace FootballTeams.DL.Repositories.MongoDb
 {
-    internal class TeamsMongoRepository : ITeamsRepository
+    public class TeamsMongoRepository : ITeamsRepository
     {
         private readonly IMongoCollection<Teams> _teamsCollection;
         private readonly ILogger<TeamsMongoRepository> _logger;
@@ -33,8 +33,8 @@ namespace FootballTeams.DL.Repositories.MongoDb
         {
             return _teamsCollection.Find(m => m.Id == id).FirstOrDefault();
         }
-        public void Add(Teams? team) 
-        {
+        public void Add(Teams? team)
+        { 
             if (team == null)
             {
                 _logger.LogError("Team is null");

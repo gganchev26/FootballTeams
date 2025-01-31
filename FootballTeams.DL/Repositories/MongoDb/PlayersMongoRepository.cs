@@ -8,7 +8,7 @@ using FootballTeams.Models.DTO;
 
 namespace FootballTeams.DL.Repositories.MongoDb
 {
-    internal class PlayersMongoRepository : IPlayerRepository
+    public class PlayersMongoRepository : IPlayerRepository
     {
         public List<Players> GetAll()
         {

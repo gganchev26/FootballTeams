@@ -5,7 +5,7 @@ using FootballTeams.Models.DTO;
 namespace FootballTeams.DL.Repositories
 {
     [Obsolete]
-    internal class PlayerStaticDataRepository : IPlayerRepository
+    public class PlayerStaticDataRepository : IPlayerRepository
     {
         public List<Players> GetAll()
         {
