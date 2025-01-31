@@ -11,8 +11,8 @@ namespace FootballTeams.DL
             RegisterRepositoies(this IServiceCollection services)
         {
             return services
-                .AddSingleton<ITeamsRepository, TeamsMongoRepository>()
-                .AddSingleton<IPlayerRepository, PlayersMongoRepository>();
+                .AddSingleton<ITeamsRepository, TeamMongoRepository>()
+                .AddSingleton<IPlayerRepository, PlayerMongoRepository>();
             
         }
     }

@@ -1,8 +1,8 @@
 ﻿using FootballTeams.Models.DTO;
 
-namespace FootballTeams.DL.Interfaces
+namespace FootballTeams.BL.Interfaces
 {
-    public interface ITeamsRepository
+    public interface ITeamService
     {
         List<Teams> GetTeamByPlacement(int placement);
     }

@@ -2,6 +2,7 @@
 using FootballTeams.BL.Interfaces;
 using FootballTeams.Models.DTO;
 using FootballTeams.Models.Requests;
+using FootballTeams.Models.Responses;
 
 
 namespace FootballTeams.Controllers
@@ -10,35 +11,17 @@ namespace FootballTeams.Controllers
     [Route("[controller]")]
     public class BusinessController : ControllerBase
     {
-        private readonly IBusinessService _teamService;
-        public BusinessController(IBusinessService teamService)
+        private readonly IBusinessService _teamservice;
+
+        public BusinessController(IBusinessService teamservice)
         {
-            _teamService = teamService;
+            _teamservice = teamservice;
         }
 
-        [HttpGet("GetAllDetailedTeams")]
-        public IActionResult GetAllDetailedTeams()
+        [HttpGet("GetAllTeamsByPlayers")]
+        public TeamsFullDetailsResponse? GetAllTeamsByPlayers(AddTeamRequest request)
         {
-            var result = _teamService.GetAllTeams();
-
-            if (result != null && result.Count > 0)
-            {
-                return Ok(result);
-            }
-            return NotFound();
+            return _teamservice.GetAllTeamsByPlayers(request);
         }
-
-        [HttpPost("Test")]
-        public IActionResult Test([FromBody] TestRequest teams) 
-        {
-            return Ok();
-        }
-    }
-    public class TestRequest
-    {
-        public int MagicNumber { get; set; }
-        public string Description { get; set; }
-
-        public DateTime DateTime { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace FootballTeam
 
             builder.Services.AddControllers();
 
-            builder.Services.AddValidatorsFromAssemblyContaining<TestValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<AddTeamRequestTestValidator>();
 
             builder.Services.AddFluentValidationAutoValidation();
 

@@ -1,12 +1,12 @@
 ﻿using FootballTeams.Models.DTO;
 
-namespace FootballTeams.DL.Interfaces
+namespace FootballTeams.BL.Interfaces
 {
-    public interface IPlayerRepository
+    public interface IPlayerService
     {
         List<Players> GetAll();
         Players? GetById(int id);
         void Add(Players player);
-        void Delete (int id);
+        void Delete(int id);
     }
 }

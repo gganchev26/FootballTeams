@@ -3,6 +3,11 @@
     public class AddTeamRequest
     {
         public string Name { get; set; } = string.Empty;
-        public int Ranking { get; set; }
+
+        public int Placement { get; set; }
+
+        public int PlayerId { get; set; }
+
+        public DateTime AfterDate { get; set; }
     }
 }

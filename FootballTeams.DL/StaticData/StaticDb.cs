@@ -4,45 +4,76 @@ namespace FootballTeams.DL.StaticData
 {
     internal static class StaticDb
     {
-        public static List<Players> Players { get; set; } = new List<Players>()
+        public static List<Players> PlayersData { get; set; } = new List<Players>()
         {
             new Players()
             {
-               Id = "1",
-                Name = "Dimitar Iliev"
+                Id = 1,
+                Name = "Dimitar"
             },
             new Players()
             {
-                Id = "2",
-                Name = "Birsent Karageren"
+                Id= 2,
+                Name = "Ivan"
             },
             new Players()
             {
-                Id = "3",
-                Name = "Angel Liaskov"
+                Id = 3,
+                Name = "Ognyan"
+            },
+            new Players()
+            {
+                Id = 4,
+                Name = "Ivelin"
+            },
+            new Players()
+            {
+                Id = 5,
+                Name = "Birsent"
+            },
+            new Players()
+            {
+                Id = 6,
+                Name = "Martin"
             }
         };
 
-        public static List<Teams> Teams { get; set; } = new List<Teams>()
+        public static List<Teams> TeamsData { get; set; } = new List<Teams>()
         {
             new Teams()
             {
                 Id = "1",
-                Name = "Lokomotiv Plovidv",
-                Ranking = 1,
+                TeamName = "Lokomotiv",
+                Placement = 1,
+                ReleaseDate = DateTime.Now
             },
             new Teams()
             {
                 Id = "2",
-                Name = "Levski Sofia",
-                Ranking = 2,
+                TeamName = "Levski",
+                Placement = 2,
+                ReleaseDate = DateTime.Now
             },
-
             new Teams()
             {
                 Id = "3",
-                Name = "Lokomotiv Sofia",
-                Ranking = 3,
+                TeamName = "CSKA",
+                Placement = 3,
+                ReleaseDate = DateTime.Now
+            },
+            new Teams()
+            {
+                Id = "4",
+                TeamName = "Botev",
+                Placement = 4,
+                ReleaseDate = DateTime.Now
+            },
+            new Teams()
+            {
+                Id = "5",
+                TeamName = "Beroe",
+                Placement = 5,
+                ReleaseDate = DateTime.Now
             }
         };
 

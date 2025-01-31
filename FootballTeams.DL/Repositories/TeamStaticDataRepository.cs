@@ -6,25 +6,9 @@ namespace FootballTeams.DL.Repositories
 {
     public class TeamStaticDataRepository  : ITeamsRepository
     {
-        public void Add(Teams team)
+       public List<Teams> GetTeamByPlacement(int placement)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Teams> GetAll()
-        {
-            return StaticDb.Teams;
-        }
-        public Teams? GetById(string id)
-        {
-            if (string.IsNullOrEmpty(id)) return null;
-
-            return StaticDb.Teams.FirstOrDefault(x => x.Id == id);
-        }
-
-        public void Update(Teams team)
-        {
-            throw new NotImplementedException();
+            return StaticDb.TeamsData.Where(x => x.Placement == placement).ToList();
         }
     }
 }

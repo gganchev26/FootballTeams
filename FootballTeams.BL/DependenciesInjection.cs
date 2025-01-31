@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using FootballTeams.BL.Interfaces;
 using FootballTeams.BL.Services;
+using FootballTeams.DL;
 
 namespace FootballTeams.BL
 {
@@ -9,9 +10,11 @@ namespace FootballTeams.BL
         public static IServiceCollection
             RegisterServices(this IServiceCollection services)
         {
-            return services
-                        .AddSingleton<ITeamsService, TeamsService>()
-                        .AddSingleton<IBusinessService, BusinessService>();
-        }
+            services.AddSingleton<ITeamService, TeamsService>();
+            services.AddSingleton<IPlayerService, PlayerService>();
+            services.AddSingleton<BusinessService, BusinessService>();
+
+            return services;
+        }       
     }
 }

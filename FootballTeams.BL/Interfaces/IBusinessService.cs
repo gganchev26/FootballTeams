@@ -1,9 +1,12 @@
-﻿using FootballTeams.Models.Responses;
+﻿using FootballTeams.Models.Requests;
+using FootballTeams.Models.Responses;
 
 namespace FootballTeams.BL.Interfaces
 {
     public interface IBusinessService
     {
-        List<TeamsFullDetailsResponse> GetAllTeams();
+        TeamsFullDetailsResponse? GetAllTeamsByPlayers(AddTeamRequest request);
+
+        int GetAllTeamsCount(int inputCount, int playerId);
     }
 }

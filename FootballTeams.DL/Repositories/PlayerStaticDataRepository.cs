@@ -4,19 +4,32 @@ using FootballTeams.Models.DTO;
 
 namespace FootballTeams.DL.Repositories
 {
-    [Obsolete]
+
     public class PlayerStaticDataRepository : IPlayerRepository
     {
         public List<Players> GetAll()
         {
-            return StaticDb.Players;
+            return StaticData.StaticDb.PlayersData;
         }
 
-        public Players? GetById(string id) {
-            if (string.IsNullOrEmpty(id))
-                return null;
+        public Players? GetById(int id)
+        {
+            return StaticDb.PlayersData.FirstOrDefault(s => s.Id == id);
+        }
 
-            return StaticDb.Players.FirstOrDefault(x => x.Id == id);
+        public void Add(Players players)
+        {
+            StaticDb.PlayersData.Add(players);
+        }
+
+        public void Delete(int id)
+        {
+            var players = GetById(id);
+
+            if (players != null)
+            {
+                StaticDb.PlayersData.Remove(players);
+            }
         }
     }
 }
