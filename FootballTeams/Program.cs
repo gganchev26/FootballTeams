@@ -40,8 +40,6 @@ namespace FootballTeam
 
             builder.Services.AddHealthChecks();
 
-            builder.Services.AddSingleton<ITeamsRepository, TeamsMongoRepository>();
-
             var app = builder.Build();
 
             app.MapHealthChecks("/healthz");
