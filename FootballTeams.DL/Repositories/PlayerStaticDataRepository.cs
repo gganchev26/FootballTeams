@@ -9,7 +9,7 @@ namespace FootballTeams.DL.Repositories
     {
         public List<Players> GetAll()
         {
-            return StaticData.StaticDb.PlayersData;
+            return StaticDb.PlayersData;
         }
 
         public Players? GetById(int id)

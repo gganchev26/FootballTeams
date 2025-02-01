@@ -19,7 +19,7 @@ namespace FootballTeams.DL.Repositories.MongoDb
                 _logger = logger;
 
                 var client =
-                    new MongoClient(mongoConfig.Value.Connection);
+                    new MongoClient(mongoConfig.Value.ConnectionString);
                 var database = client.GetDatabase(
                     mongoConfig.Value.DatabaseName);
                 _teamsCollection = database.GetCollection<Teams>("Teams");
