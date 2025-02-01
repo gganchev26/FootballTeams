@@ -1,24 +1,21 @@
 ﻿using FluentValidation;
-using FootballTeams.Controllers;
-using FootballTeams.Models.Requests;
+using FootballTeams.Models.Request;
+
 
 namespace FootballTeams.Validators
 {
-    public class AddTeamRequestTestValidator : AbstractValidator<Models.Requests.AddTeamRequest>
+    public class AddTeamRequestTestValidator : AbstractValidator<AddTeamRequest>
     {
         public AddTeamRequestTestValidator() {
-            RuleFor(x => x.Name)
+            RuleFor(x => x.TeamName)
                 .NotEmpty()
                 .NotNull()
                 .MaximumLength(100)
                 .MinimumLength(2);
 
-            RuleFor(x => x.Placement)
+            RuleFor(x => x.Id)
                 .NotEmpty()
                 .GreaterThan(0);
-            RuleFor(x => x.AfterDate)
-                .NotNull()
-                .NotEmpty();
         }
     }
 }

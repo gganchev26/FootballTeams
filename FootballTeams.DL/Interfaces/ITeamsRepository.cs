@@ -4,6 +4,6 @@ namespace FootballTeams.DL.Interfaces
 {
     public interface ITeamsRepository
     {
-        List<Teams> GetTeamByPlacement(int placement);
+        List<Teams> GetAllTeamsFromPlayers(int playerId);
     }
 }

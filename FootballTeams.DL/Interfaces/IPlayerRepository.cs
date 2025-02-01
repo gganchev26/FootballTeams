@@ -6,7 +6,7 @@ namespace FootballTeams.DL.Interfaces
     {
         List<Players> GetAll();
         Players? GetById(int id);
-        void Add(Players player);
-        void Delete (int id);
+        void Add (Players player);
+        void Delete(int id);
     }
 }

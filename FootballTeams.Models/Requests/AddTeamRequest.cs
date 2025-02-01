@@ -1,13 +1,8 @@
-﻿namespace FootballTeams.Models.Requests
+﻿namespace FootballTeams.Models.Request
 {
     public class AddTeamRequest
     {
-        public string Name { get; set; } = string.Empty;
-
-        public int Placement { get; set; }
-
-        public int PlayerId { get; set; }
-
-        public DateTime AfterDate { get; set; }
+        public string TeamName { get; set; } = string.Empty;
+        public int Id { get; set; }
     }
 }

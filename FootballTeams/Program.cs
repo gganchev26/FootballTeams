@@ -6,6 +6,10 @@ using FootballTeams.BL.Interfaces;
 using FootballTeams.DL;
 using FootballTeams.Models.Configurations;
 using FootballTeams.Validators;
+using FootballTeams.Bl;
+using FootballTeams.ServiceExt;
+using FootballTeam.MapConfig;
+using Microsoft.Extensions.Logging;
 
 namespace FootballTeam
 {
@@ -20,11 +24,17 @@ namespace FootballTeam
                 builder.Configuration
                 .GetSection(nameof(MongoDbConfiguration)));
 
+            
 
             //Add services to the container.
             builder.Services
-                .RegisterRepositoies()
-                .RegisterServices();
+                .AddConfigurations(builder.Configuration)
+                .RegisterDataLayer()
+                .RegisterBusinessLayer();
+
+            MapsterConfiguration.Configure();
+            builder.Services.AddMapster();
+
 
             builder.Services.AddMapster();
 
@@ -40,7 +50,7 @@ namespace FootballTeam
 
             var app = builder.Build();
 
-            app.MapHealthChecks("/healthz");
+            app.MapHealthChecks("/Sample");
 
             if (app.Environment.IsDevelopment())
             {

@@ -8,34 +8,34 @@ namespace FootballTeams.DL.StaticData
         {
             new Players()
             {
-                Id = 1,
-                Name = "Dimitar"
+               Id = 1,
+               PlayerName = "Mitko",
+               Age = 25,
             },
             new Players()
             {
-                Id= 2,
-                Name = "Ivan"
+               Id = 2,
+               PlayerName = "Ivan",
+               Age = 27,
             },
             new Players()
             {
-                Id = 3,
-                Name = "Ognyan"
+               Id = 3,
+               PlayerName = "Gosho",
+               Age = 21,
             },
             new Players()
             {
-                Id = 4,
-                Name = "Ivelin"
+               Id = 4,
+               PlayerName = "Dragan",
+               Age = 31,
             },
             new Players()
             {
-                Id = 5,
-                Name = "Birsent"
+               Id = 5,
+               PlayerName = "Zhivko",
+               Age = 42,
             },
-            new Players()
-            {
-                Id = 6,
-                Name = "Martin"
-            }
         };
 
         public static List<Teams> TeamsData { get; set; } = new List<Teams>()
@@ -43,39 +43,33 @@ namespace FootballTeams.DL.StaticData
             new Teams()
             {
                 Id = "1",
-                TeamName = "Lokomotiv",
-                Placement = 1,
-                ReleaseDate = DateTime.Now
+                PlayerId = 1,
+                TeamName = "Lokomotiv Plovdiv"
             },
             new Teams()
             {
                 Id = "2",
-                TeamName = "Levski",
-                Placement = 2,
-                ReleaseDate = DateTime.Now
+                PlayerId = 2,
+                TeamName = "Levski Sofia"
             },
             new Teams()
             {
                 Id = "3",
-                TeamName = "CSKA",
-                Placement = 3,
-                ReleaseDate = DateTime.Now
+                PlayerId = 3,
+                TeamName = "CSKA-Sofia"
             },
             new Teams()
             {
                 Id = "4",
-                TeamName = "Botev",
-                Placement = 4,
-                ReleaseDate = DateTime.Now
+                PlayerId = 4,
+                TeamName = "Botev Plovdiv"
             },
             new Teams()
             {
                 Id = "5",
-                TeamName = "Beroe",
-                Placement = 5,
-                ReleaseDate = DateTime.Now
-            }
+                PlayerId = 5,
+                TeamName = "Spartak Plovdiv"
+            },
         };
-
     }
 }

@@ -1,16 +1,16 @@
 ﻿using Mapster;
 using FootballTeams.Models.DTO;
-using FootballTeams.Models.Requests;
+using FootballTeams.Models.Request;
 
-
-namespace FootballTeams.MapConfig
+namespace FootballTeam.MapConfig
 {
     public class MapsterConfiguration
     {
         public static void Configure()
-        {
-            TypeAdapterConfig<AddTeamRequest, Teams>
-                .NewConfig();
+        { 
+            TypeAdapterConfig<Teams, AddTeamRequest>
+                .NewConfig()
+                .TwoWays();
         }
     }
 }

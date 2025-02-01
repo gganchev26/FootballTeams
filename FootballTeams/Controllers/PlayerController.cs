@@ -1,47 +1,43 @@
-﻿using MapsterMapper;
-using Microsoft.AspNetCore.Mvc;
-using FootballTeams.BL.Interfaces;
+﻿using FootballTeams.BL.Interfaces;
 using FootballTeams.Models.DTO;
-using FootballTeams.Models.Requests;
+using Microsoft.AspNetCore.Mvc;
 
-
-namespace FootballTeams.Controllers
+namespace FootballTeam.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
     public class PlayerController : ControllerBase
     {
-        private readonly IPlayerService _playerservice;
-        private readonly IMapper _mapper;
+        private readonly IPlayerService _playerService;
 
-        public PlayerController(IPlayerService playerservice, IMapper mapper)
+        public PlayerController(IPlayerService playerService)
         {
-            _playerservice = playerservice;
-            _mapper = mapper;
+            _playerService = playerService;
         }
 
         [HttpGet("GetAll")]
-        public IEnumerable<Players> GetAll([FromBody]Players dto)
+        public IEnumerable<Players> GetAll()
         {
-            return _playerservice.GetAll();
+            return _playerService.GetAll();
         }
 
         [HttpGet("GetById")]
         public Players? GetById(int id)
         {
-            return _playerservice.GetById(id);
+            return _playerService.GetById(id);
         }
 
         [HttpPost("Add")]
-        public void Add([FromBody]Players players) 
-        { 
-            _playerservice.Add(players);
+        public void Add([FromBody] Players player)
+        {
+            _playerService.Add(player);
         }
 
         [HttpDelete("Delete")]
         public void Delete(int id)
         {
-            _playerservice.Delete(id);
+            _playerService.Delete(id);
         }
     }
 }

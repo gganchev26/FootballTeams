@@ -4,6 +4,6 @@ namespace FootballTeams.BL.Interfaces
 {
     public interface ITeamService
     {
-        List<Teams> GetTeamByPlacement(int placement);
+        List<Teams> GetAllTeamsFromPlayers(int playerId);
     }
 }

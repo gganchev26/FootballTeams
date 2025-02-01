@@ -1,43 +1,43 @@
 ﻿using FootballTeams.BL.Interfaces;
-using FootballTeams.DL.Interfaces;
-using FootballTeams.Models.Requests;
+using FootballTeams.Models.DTO;
+using FootballTeams.Models.Request;
 using FootballTeams.Models.Responses;
 
 namespace FootballTeams.BL.Services
 {
     public class BusinessService : IBusinessService
     {
-        private readonly ITeamsRepository _teamsRepository;
-        private readonly IPlayerRepository _playerRepository;
+        private readonly ITeamService _teamService;
+        private readonly IPlayerService _playerService;
 
-        public BusinessService(ITeamsRepository teamsRepository, IPlayerRepository playerRepository)
+        public BusinessService(ITeamService teamservice, IPlayerService playerService)
         {
-            _teamsRepository = teamsRepository;
-            _playerRepository = playerRepository;
+            _teamService = teamservice;
+            _playerService = playerService;
         }
 
-        public TeamsFullDetailsResponse? GetAllTeamsByPlayers(AddTeamRequest request)
+        public TeamsFullDetails? GetAllTeamsById(AddTeamRequest request)
         {
-            var teams = _teamsRepository.GetTeamByPlacement(request.Placement);
-            var players = _playerRepository.GetById(request.PlayerId);
+            var teams = _teamService.GetAllTeamsFromPlayers(request.Id);
+
+            var players = _playerService.GetById(request.Id);
 
             if (players == null) return null;
 
-            var result = new TeamsFullDetailsResponse
+            var result = new TeamsFullDetails
             {
                 Players = players,
-                Teams = teams
+                Teams = teams.Where(g => g.TeamName == request.TeamName).ToList()
             };
             return result;
         }
 
         public int GetAllTeamsCount(int inputCount, int playerId)
         {
-            if (inputCount == 0) return 0;
-            var result = _teamsRepository.GetTeamByPlacement(playerId);
+            if (inputCount <= 0) return 0;
 
-            return result.Count+ inputCount;
+            var result = _teamService.GetAllTeamsFromPlayers(playerId);
+            return result.Count + inputCount;
         }
     }
 }
-

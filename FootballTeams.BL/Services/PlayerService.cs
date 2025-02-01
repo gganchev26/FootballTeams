@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using FootballTeams.BL.Interfaces;
+﻿using FootballTeams.BL.Interfaces;
 using FootballTeams.DL.Interfaces;
 using FootballTeams.Models.DTO;
 
@@ -8,22 +7,13 @@ namespace FootballTeams.BL.Services
     public class PlayerService : IPlayerService
     {
         private readonly IPlayerRepository _playerRepository;
-        private readonly ILogger<PlayerService> _logger;
-
-        public PlayerService(
-            IPlayerRepository playerRepository, ILogger<PlayerService> logger)
+        public PlayerService(IPlayerRepository playerRepository)
         {
             _playerRepository = playerRepository;
-            _logger = logger;
         }
 
         public void Add(Players player)
         {
-            if (player == null)
-            {
-                _logger.LogError("Player is null");
-                return;
-            }
             _playerRepository.Add(player);
         }
 
@@ -38,7 +28,7 @@ namespace FootballTeams.BL.Services
         }
 
         public Players? GetById(int id)
-        {           
+        {
             return _playerRepository.GetById(id);
         }
     }
