@@ -15,19 +15,5 @@ namespace FootballTeams.ServiceExt
             return services.Configure<MongoDbConfiguration>(
                 configuration.GetSection(nameof(MongoDbConfiguration)));
         }
-        public static IServiceCollection RegisterDataLayer(this IServiceCollection services)
-        {
-            services.AddScoped<ITeamsRepository, TeamRepository>();
-            services.AddScoped<IPlayerRepository, PlayerRepository>();
-            return services;
-        }
-
-        public static IServiceCollection RegisterBusinessLayer(this IServiceCollection services)
-        {
-            services.AddScoped<ITeamService, TeamsService>();
-            services.AddScoped<IBusinessService, BusinessService>();
-            services.AddScoped<IPlayerService, PlayerService>();
-            return services;
-        }
     }
 }

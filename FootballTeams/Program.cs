@@ -11,6 +11,7 @@ using FootballTeams.ServiceExt;
 using FootballTeam.MapConfig;
 using Microsoft.Extensions.Logging;
 
+
 namespace FootballTeam
 {
     public class Program
@@ -24,13 +25,13 @@ namespace FootballTeam
                 builder.Configuration
                 .GetSection(nameof(MongoDbConfiguration)));
 
-            
+
 
             //Add services to the container.
             builder.Services
-                .AddConfigurations(builder.Configuration)
-                .RegisterDataLayer()
-                .RegisterBusinessLayer();
+                .AddConfigurations(builder.Configuration);
+            builder.Services.RegisterDataLayer();
+            builder.Services.RegisterBusinessLayer();
 
             MapsterConfiguration.Configure();
             builder.Services.AddMapster();
