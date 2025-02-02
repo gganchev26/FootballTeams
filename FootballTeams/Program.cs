@@ -10,6 +10,7 @@ using FootballTeams.Bl;
 using FootballTeams.ServiceExt;
 using FootballTeam.MapConfig;
 using Microsoft.Extensions.Logging;
+using FootballTeam.HealthChecks;
 
 
 namespace FootballTeam
@@ -47,7 +48,8 @@ namespace FootballTeam
 
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddHealthChecks();
+            builder.Services.AddHealthChecks()
+            .AddCheck<CustomHealthChecks>("Custom");
 
             var app = builder.Build();
 
