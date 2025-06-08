@@ -6,7 +6,6 @@ namespace FootballTeam.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-
     public class PlayerController : ControllerBase
     {
         private readonly IPlayerService _playerService;
@@ -17,27 +16,41 @@ namespace FootballTeam.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IEnumerable<Players> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return _playerService.GetAll();
+            var players = await _playerService.GetAllAsync();
+            return Ok(players);
         }
 
         [HttpGet("GetById")]
-        public Players? GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            return _playerService.GetById(id);
+            var player = await _playerService.GetByIdAsync(id);
+            if (player == null)
+            {
+                return NotFound($"Player with ID {id} not found.");
+            }
+            return Ok(player);
         }
 
         [HttpPost("Add")]
-        public void Add([FromBody] Players player)
+        public async Task<IActionResult> Add([FromBody] Players player)
         {
-            _playerService.Add(player);
+            await _playerService.AddAsync(player);
+            return Ok("Player added successfully.");
         }
 
         [HttpDelete("Delete")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _playerService.Delete(id);
+            var player = await _playerService.GetByIdAsync(id);
+            if (player == null)
+            {
+                return NotFound($"Player with ID {id} not found.");
+            }
+
+            await _playerService.DeleteAsync(id);
+            return Ok("Player deleted successfully.");
         }
     }
 }

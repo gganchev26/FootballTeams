@@ -5,8 +5,7 @@ namespace FootballTeams.BL.Interfaces
 {
     public interface IBusinessService
     {
-        TeamsFullDetails? GetAllTeamsById(AddTeamRequest request);
-
-        int GetAllTeamsCount(int inputCount, int playerId);
+        Task<TeamsFullDetails?> GetAllTeamsByIdAsync(AddTeamRequest request);
+        Task<int> GetAllTeamsCountAsync(int inputCount, int playerId);
     }
 }

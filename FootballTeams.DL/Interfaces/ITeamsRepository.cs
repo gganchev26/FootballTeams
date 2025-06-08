@@ -4,6 +4,6 @@ namespace FootballTeams.DL.Interfaces
 {
     public interface ITeamsRepository
     {
-        List<Teams> GetAllTeamsFromPlayers(int playerId);
+        Task<List<Teams>> GetAllTeamsFromPlayerAsync(int playerId);
     }
 }

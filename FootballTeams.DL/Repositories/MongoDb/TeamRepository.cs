@@ -8,23 +8,20 @@ namespace FootballTeams.DL.Repositories.MongoDb
 {
     public class TeamRepository : ITeamsRepository
     {
-        private IOptions<MongoDbConfiguration> _mongoConfig;
         private readonly IMongoCollection<Teams> _teams;
 
         public TeamRepository(IOptions<MongoDbConfiguration> mongoConfig)
         {
-            _mongoConfig = mongoConfig;
-            
             var client = new MongoClient(mongoConfig.Value.ConnectionString);
-
             var database = client.GetDatabase(mongoConfig.Value.DatabaseName);
-
             _teams = database.GetCollection<Teams>("Teams");
         }
 
-        public List<Teams> GetAllTeamsFromPlayers(int playerId)
+        public async Task<List<Teams>> GetAllTeamsFromPlayerAsync(int playerId)
         {
-            return StaticData.StaticDb.TeamsData.Where(g => g.PlayerId == playerId).ToList();
+            var filter = Builders<Teams>.Filter.Eq(t => t.PlayerId, playerId);
+            var result = await _teams.FindAsync(filter);
+            return await result.ToListAsync();
         }
     }
 }

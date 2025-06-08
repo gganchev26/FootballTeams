@@ -10,33 +10,33 @@ namespace FootballTeams.BL.Services
         private readonly ITeamService _teamService;
         private readonly IPlayerService _playerService;
 
-        public BusinessService(ITeamService teamservice, IPlayerService playerService)
+        public BusinessService(ITeamService teamService, IPlayerService playerService)
         {
-            _teamService = teamservice;
+            _teamService = teamService;
             _playerService = playerService;
         }
 
-        public TeamsFullDetails? GetAllTeamsById(AddTeamRequest request)
+        public async Task<TeamsFullDetails?> GetAllTeamsByIdAsync(AddTeamRequest request)
         {
-            var teams = _teamService.GetAllTeamsFromPlayers(request.Id);
+            var teams = await _teamService.GetAllTeamsFromPlayersAsync(request.Id);
+            var player = await _playerService.GetByIdAsync(request.Id);
 
-            var players = _playerService.GetById(request.Id);
-
-            if (players == null) return null;
+            if (player == null) return null;
 
             var result = new TeamsFullDetails
             {
-                Players = players,
+                Players = player,
                 Teams = teams.Where(g => g.TeamName == request.TeamName).ToList()
             };
+
             return result;
         }
 
-        public int GetAllTeamsCount(int inputCount, int playerId)
+        public async Task<int> GetAllTeamsCountAsync(int inputCount, int playerId)
         {
             if (inputCount <= 0) return 0;
 
-            var result = _teamService.GetAllTeamsFromPlayers(playerId);
+            var result = await _teamService.GetAllTeamsFromPlayersAsync(playerId);
             return result.Count + inputCount;
         }
     }

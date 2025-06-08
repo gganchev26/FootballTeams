@@ -7,16 +7,15 @@ namespace FootballTeams.BL.Services
     public class TeamsService : ITeamService
     {
         private readonly ITeamsRepository _teamsrepository;
-        private readonly IPlayerRepository _playerrepository;
 
-        public TeamsService(ITeamsRepository teamsRepository) 
-        { 
+        public TeamsService(ITeamsRepository teamsRepository)
+        {
             _teamsrepository = teamsRepository;
         }
 
-        public List<Teams> GetAllTeamsFromPlayers(int playerId)
+        public async Task<List<Teams>> GetAllTeamsFromPlayersAsync(int playerId)
         {
-            return _teamsrepository.GetAllTeamsFromPlayers(playerId);
+            return await _teamsrepository.GetAllTeamsFromPlayerAsync(playerId);
         }
     }
 }

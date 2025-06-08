@@ -4,6 +4,6 @@ namespace FootballTeams.BL.Interfaces
 {
     public interface ITeamService
     {
-        List<Teams> GetAllTeamsFromPlayers(int playerId);
+        Task<List<Teams>> GetAllTeamsFromPlayersAsync(int playerId);
     }
 }

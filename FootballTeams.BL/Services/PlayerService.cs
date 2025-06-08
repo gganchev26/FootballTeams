@@ -7,29 +7,30 @@ namespace FootballTeams.BL.Services
     public class PlayerService : IPlayerService
     {
         private readonly IPlayerRepository _playerRepository;
+
         public PlayerService(IPlayerRepository playerRepository)
         {
             _playerRepository = playerRepository;
         }
 
-        public void Add(Players player)
+        public async Task AddAsync(Players player)
         {
-            _playerRepository.Add(player);
+            await _playerRepository.AddAsync(player);
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            _playerRepository.Delete(id);
+            await _playerRepository.DeleteAsync(id);
         }
 
-        public List<Players> GetAll()
+        public async Task<List<Players>> GetAllAsync()
         {
-            return _playerRepository.GetAll();
+            return await _playerRepository.GetAllAsync();
         }
 
-        public Players? GetById(int id)
+        public async Task<Players?> GetByIdAsync(int id)
         {
-            return _playerRepository.GetById(id);
+            return await _playerRepository.GetByIdAsync(id);
         }
     }
 }

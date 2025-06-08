@@ -4,9 +4,9 @@ namespace FootballTeams.DL.Interfaces
 {
     public interface IPlayerRepository
     {
-        List<Players> GetAll();
-        Players? GetById(int id);
-        void Add (Players player);
-        void Delete(int id);
+        Task<List<Players>> GetAllAsync();
+        Task<Players?> GetByIdAsync(int id);
+        Task  AddAsync(Players player);
+        Task  DeleteAsync(int id);
     }
 }
