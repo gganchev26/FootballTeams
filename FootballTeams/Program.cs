@@ -69,6 +69,19 @@ namespace FootballTeam
 
             app.Run();
 
+            
+
+            builder.Services.Configure<MongoDbConfiguration>(builder.Configuration.GetSection("MongoDbConfiguration"));
+            builder.Services.Configure<KafkaConfiguration>(builder.Configuration.GetSection("Kafka"));
+
+            builder.Services.AddSingleton<KafkaProducer>();
+            builder.Services.AddHostedService<CacheDistributorService>();
+            builder.Services.AddHostedService<CacheConsumerService>();
+            builder.Services.AddHttpClient<ExternalApiService>();
+
+            
+            app.Run();
+
         }
     }
 }

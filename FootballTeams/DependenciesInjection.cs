@@ -6,7 +6,7 @@ namespace FootballTeams
     {
         public static void RegisterService(this IServiceCollection services)
         {
-           // services.RegisterDataLayer();
+           
             services.RegisterBusinessLayer();
         }
     }
